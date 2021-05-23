@@ -7,7 +7,7 @@ title = TajneAkta
 package.name = TajneAkta
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = JWK.org
+package.domain = org.test
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -49,7 +49,7 @@ presplash.filename = librus.png
 icon.filename = icon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
-orientation = sensorLandscape
+orientation = all
 # (list) List of service to declare
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
 
