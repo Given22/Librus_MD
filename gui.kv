@@ -1,0 +1,155 @@
+Screen:
+	NavigationLayout:
+		ScreenManager:
+			id: scr_men
+			Screen:
+				name: 'powitanie'
+				MDToolbar:
+					id: toolbar
+					title: 'Librus'
+					pos_hint: {"top": 1}
+					elevation: 10
+					left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+				BoxLayout:
+					orientation: 'vertical'
+					MDLabel:
+						text: 'Witam'
+						font_style: 'H2'
+						color: [1,1,1,1]
+						halign: 'center'
+			Screen:
+				name: 'logowanie'
+				login: login
+				haslo: haslo
+				nr: nr
+				MDToolbar:
+					title: 'Logowanie'
+					pos_hint: {"top": 1}
+					elevation: 10
+					left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+				MDCard:
+					size_hint: None, None
+					size: root.width / 1.3, root.height / 1.8
+					pos_hint: {'center_x': .5, 'center_y': 0.5}
+					elevation: 10
+					padding: 25
+					spacing: 20
+					orientation: 'vertical'
+					MDLabel:
+						text: 'Librus'
+						font_size: root.height / 20
+						halign: 'center'
+						size_hint_y: None
+						height: self.texture_size[1]
+						padding_y: 15
+						color: [1,1,1,1]
+					MDTextField:
+						id: login
+						hint_text: 'Login'
+						icon_right: 'account'
+						size_hint_x: None
+						width: root.width / 1.75
+						font_size: root.height / 35
+						pos_hint: {'center_x': .5}
+					MDTextField:
+						id: haslo
+						hint_text: 'Hasło'
+						icon_right: 'eye-off'
+						password: True
+						size_hint_x: None
+						width: root.width / 1.75
+						font_size: root.height / 35
+						pos_hint: {'center_x': .5}
+
+					MDTextField:
+						id: nr
+						hint_text: 'Nr'
+						size_hint_x: None
+						width: root.width / 1.75
+						font_size: root.height / 35
+						pos_hint: {'center_x': .5}
+
+					MDFlatButton:
+						text: 'Zaloguj'
+						font_size: root.height / 30
+						pos_hint: {'center_x':.5}
+						padding: 20
+						on_press: app.logIn()
+			Screen:
+				name: 'nieobecnosci'
+				MDBoxLayout:
+					orientation: "vertical"
+					MDToolbar:
+						title: 'Nieobecności'
+						pos_hint: {"top": 1}
+						elevation: 10
+						left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+					MDTabs:
+						id: tabs
+						adaptive_height: True
+						Tab:
+							text: 'Obecne'
+							ScrollView:
+								MDList:
+									id: nieobecnosci_1
+						Tab:
+							text: 'Wszystkie'
+							ScrollView:
+								MDList:
+									id: nieobecnosci_2
+			Screen:
+				name: 'numerek'
+				MDBoxLayout:
+					orientation: "vertical"
+					MDToolbar:
+						title: 'Szczęśliwy numerek'
+						pos_hint: {"top": 1}
+						elevation: 10
+						left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+					BoxLayout:
+						orientation: 'vertical'
+						MDLabel:
+							id: numerek
+							text: 'Szczęśliwy numerek'
+							font_style: 'H3'
+							color: [1,1,1,1]
+							halign: 'center'
+
+
+		MDNavigationDrawer:
+			id: nav_drawer
+			BoxLayout:
+				orientation: 'vertical'
+				spacing: 40
+				padding: 30
+
+				MDLabel:
+					text: 'Librus'
+					font_style: 'H3'
+					color: [1,1,1,1]
+					size_hint_y: None
+					height: self.texture_size[1]
+					elevation: 10
+
+				ScrollView:
+					MDList:
+						OneLineIconListItem:
+							text: 'Logowanie'
+							on_press: scr_men.current = 'logowanie'
+							IconLeftWidget:
+								icon: 'login'
+
+						OneLineIconListItem:
+							text: 'Nieobecności'
+							on_press: scr_men.current = 'nieobecnosci'
+							IconLeftWidget:
+								icon: 'calendar-account'
+
+						OneLineIconListItem:
+							text: 'Szczęśliwy Numerek'
+							on_press: scr_men.current = 'numerek'
+							IconLeftWidget:
+								icon: 'horseshoe'
+
+<Tab>
+    MDLabel:

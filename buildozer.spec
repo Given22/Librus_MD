@@ -7,7 +7,7 @@ title = TajneAkta
 package.name = TajneAkta
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = JWK.org
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -28,7 +28,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1.1
+version = 1.0.1
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -43,10 +43,10 @@ requirements = python3,kivy,requests,urllib3,chardet,idna,py-librus-api,datetime
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-presplash.filename = jd.png
+presplash.filename = librus.png
 
 # (str) Icon of the application
-icon.filename = qw.png
+icon.filename = icon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = sensorLandscape
