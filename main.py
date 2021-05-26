@@ -53,6 +53,21 @@ class tajneAkta(MDApp):
     def nieobecnosci(self, data):
         nieobecnosc = []
         j = 0
+        print(data)
+        for s in data:
+            nieobecnosc.append([])
+            if 'Teacher' in s:
+                for x in s['Teacher']:
+                    nieobecnosc[j].append(s['Teacher'][x])
+                del s['Teacher']
+            for x in s:
+                nieobecnosc[j].append(s[x])
+            j += 1
+        return nieobecnosc
+
+    def nieobecnosciW(self, data):
+        nieobecnosc = []
+        j = 0
         for s in data:
             nieobecnosc.append([])
             if 'Teacher' in s:
@@ -72,9 +87,9 @@ class tajneAkta(MDApp):
                 ThreeLineListItem(text=' '.join(i[:2]), secondary_text=i[2], tertiary_text=' '.join(i[3:]))
             )
 
-        nieobecnosc = self.nieobecnosci(self.lib.nieObecnosci(True))
+        nieobecnosc2 = self.nieobecnosciW(self.lib.nieObecnosci(True))[:-(len(nieobecnosc))] + nieobecnosc
 
-        for i in nieobecnosc:
+        for i in nieobecnosc2[::-1]:
             self.root.ids.nieobecnosci_2.add_widget(
                 ThreeLineListItem(text=' '.join(i[:2]), secondary_text=i[2], tertiary_text=' '.join(i[3:]))
             )
