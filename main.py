@@ -1,4 +1,5 @@
 from Lib import *
+import kivymd
 from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel, MDIcon
 from kivymd.font_definitions import theme_font_styles
